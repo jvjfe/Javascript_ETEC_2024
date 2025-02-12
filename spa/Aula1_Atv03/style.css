@@ -1,0 +1,45 @@
+/* Definindo o tema Light */
+:root {
+    --cor-fundo: #ffffff;
+    --cor-texto: #000000;
+    --cor-botao-fundo: #4CAF50;
+    --cor-botao-texto: #ffffff;
+}
+
+/* Definindo o tema Dark */
+[data-tema="dark"] {
+    --cor-fundo: #333333;
+    --cor-texto: #ffffff;
+    --cor-botao-fundo: #555555;
+    --cor-botao-texto: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--cor-botao-fundo);
+    color: var(--cor-botao-texto);
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#conteudo {
+    margin-top: 20px;
+}
