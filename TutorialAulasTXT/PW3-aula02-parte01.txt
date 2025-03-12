@@ -1,0 +1,298 @@
+Plano da Semana 2  
+=================
+Introdução ao JavaScript: manipulação do DOM, eventos e funções.  
+Exemplo prático: Criar um formulário interativo com JavaScript.  
+
+=====================================================================================================================
+Revisão Completa de JavaScript (Passo a Passo)  
+
+ Parte 1 – Introdução ao JavaScript (Sintaxe, Variáveis e Tipos de Dados)  
+ Parte 2 – Operadores, Estruturas Condicionais e Laços de Repetição  
+ Parte 3 – Funções e Manipulação do DOM  
+ Parte 4 – Eventos e Interatividade  
+
+Cada parte terá explicações, exemplos e exercícios práticos. Vamos começar!
+
+=====================================================================================================================
+Parte 1: Introdução ao JavaScript  
+
+1-O que é JavaScript?  
+O JavaScript (JS) é uma linguagem de programação que permite adicionar 
+interatividade às páginas web.  
+
+Diferente de HTML e CSS (linguagens de marcação e estilização), 
+o JavaScript permite:  
+* Criar interações dinâmicas (ex.: animações, menus interativos, sliders).  
+* Manipular elementos HTML e CSS dinamicamente.  
+* Realizar cálculos e processar informações.  
+* Comunicar-se com servidores via APIs.  
+
+ O JS roda diretamente no navegador, sem necessidade de compilação.  
+
+2-Como adicionar JavaScript a uma página web?  
+
+Podemos incluir JavaScript de três formas em um documento HTML:  
+
+
+a. JavaScript inline (dentro das tags HTML) – 
+(Evite usar, exceto em casos muito simples) 
+ 
+	<button onclick="alert('Você clicou!')">Clique aqui</button>
+
+
+b. JavaScript interno (dentro da tag <script> no HTML)  
+
+	<script>
+		alert('Bem-vindo à minha página!');
+	</script>
+
+
+c. JavaScript externo (em um arquivo separado .js) –  (Melhor prática!)  
+
+		<script src="script.js"></script>
+
+Recomendação: Sempre utilize arquivos JavaScript externos 
+para manter o código organizado.  
+
+
+
+3-Criando nosso primeiro código JavaScript  
+
+Passo 1: Crie um arquivo chamado script.js.  
+
+Passo 2: Dentro do index.html, adicione o link do JavaScript 
+antes do fechamento da tag <body>: 
+ 
+				<script src="script.js"></script>
+
+Passo 3: No arquivo script.js, adicione o seguinte código: 
+ 	
+alert("Olá! JavaScript foi carregado com sucesso!");
+
+Passo 4: Abra index.html no navegador e veja o alerta aparecendo! 
+
+
+
+4-Variáveis e Tipos de Dados  
+
+Uma variável armazena valores na memória para serem usados posteriormente.  
+
+Declaração de variáveis em JavaScript:  
+
+var nomeDoAluno = "Carlos";  
+// Antiga forma (não recomendada)
+
+let idadeDoAluno = 25;       
+// Melhor prática (variável mutável)
+
+const PI = 3.14;  
+const DESCONTO = 0.1;    
+// Constante (valor fixo)
+
+Tipos de Dados Principais  
+
+String (texto):  
+let nome = "Ana";
+console.log(nome);
+
+Number (número inteiro ou decimal):  
+let numero = 42;
+let preco = 9.99;
+
+Boolean (true ou false):  
+let estaLogado = true;
+
+Array (lista de valores):  
+let frutas = ["Maçã", "Banana", "Uva"];
+
+Objeto (estrutura de dados chave-valor):  
+let pessoa = { nome: "Carlos", idade: 30, profissao: "Engenheiro" };
+
+
+Teste no console do navegador:  
+1. Abra seu navegador.  
+2. Pressione F12 ou Ctrl + Shift + I para abrir o DevTools.  
+3. Vá até a aba Console e digite comandos JavaScript para testar!  
+
+5-Exercícios Práticos
+Objetivo: Praticar variáveis e tipos de dados.  
+
+Exercício 1: Declare três variáveis (nome, idade, cidade). 
+Exiba no console uma frase personalizada com essas informações.  
+
+// Declarando as variáveis
+let nome = "Carlos";
+let idade = 30;
+let cidade = "São Paulo";
+
+// Exibindo a frase no console
+console.log(`Olá, meu nome é ${nome}, tenho ${idade} anos e moro em ${cidade}.`);
+
+Explicação do Código:
+1. Declaração das variáveis: 
+Usamos let para criar as variáveis nome, idade e cidade.
+
+2. Interpolação de strings: 
+Utilizamos template literals (criados com crase `) para montar a frase.
+
+3. Saída no console: O console.log() exibe a frase na aba 
+Console do navegador ou no terminal.
+
+Como testar o código?  
+1. Abra o DevTools do navegador (F12 ou Ctrl + Shift + I).  
+2. Vá até a aba Console.  
+3. Digite o código e execute cada instrução com Enter.  
+
+let nome = "Carlos";
+nome;
+let idade = 30;
+idade;
+let cidade = "São Paulo";
+cidade;
+console.log(`Olá, meu nome é ${nome}, tenho ${idade} anos e moro em ${cidade}.`);
+ou 
+console.log("Olá, meu nome é "+nome+", tenho "+idade+" anos e moro em "+cidade);
+
+
+Exercício 2: Crie uma variável precoProduto. 
+Atribua um valor numérico e exiba no console o preço com 10% de desconto.  
+
+// Declarando a variável
+let precoProduto = 150; // Valor original do produto
+
+// Calculando o preço com 10% de desconto
+let desconto = precoProduto * 0.10;
+let precoComDesconto = precoProduto - desconto;
+
+// Exibindo o resultado no console
+console.log(`O preço original do produto é R$${precoProduto.toFixed(2)}.`);
+console.log(`Com 10% de desconto, o novo preço é R$${precoComDesconto.toFixed(2)}.`);
+
+
+Explicação do Código:
+1. Declaramos a variável precoProduto e atribuímos um valor numérico.
+2. Calculamos o desconto de 10% multiplicando precoProduto * 0.10.
+3. Subtraímos o desconto do preço original para obter o novo preço.
+4. Usamos .toFixed(2) para exibir os valores com duas casas decimais.
+5. Exibimos os valores no console usando `console.log().
+
+Como testar?  
+1. Abra o Console do DevTools (F12 ou Ctrl + Shift + I).  
+2. Digite o código e pressione Enter.  
+
+
+Exercício 3: Crie um array chamado animais e adicione 3 nomes de animais. 
+Exiba o primeiro nome do array no console.  
+
+// Criando um array com três nomes de animais
+let animais = ["Leão", "Elefante", "Gato"];
+// Exibindo o primeiro nome do array no console
+console.log(`O primeiro animal do array é: ${animais[0]}`);
+
+Explicação do Código:
+1. Criamos um array chamado animais com três elementos (nomes de animais).
+2. Acessamos o primeiro elemento do array usando `animais[0]` (índices começam em `0`).
+3. Exibimos o nome do primeiro animal no console.
+
+Como testar?  
+1. Abra o Console do DevTools (F12 ou Ctrl + Shift + I).  
+2. Cole o código e pressione Enter. 
+
+Exercício 4:Crie um objeto chamado pessoa e apresente seu conteúdo.
+
+let pessoa = {
+    nome: 'Ana',
+    idade: 25,
+    cidade: 'São Paulo'
+};
+console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Cidade: ${pessoa.cidade}`);
+
+
+Explicação do código:
+1. Criamos um objeto pessoa com três propriedades: nome, idade e cidade. 
+2. Atribuímos um valor para cada uma delas. 
+3. O console.log usa template literals para exibir esses valores dinamicamente, 
+acessando cada propriedade com pessoa.nome, pessoa.idade e pessoa.cidade.
+
+=========================================================================================================================
+
+A principal diferença entre let e var na declaração de variáveis está no escopo (onde a variável pode ser acessada) 
+e no comportamento quando usada dentro de funções ou blocos de código.
+
+ 1. Escopo (Onde a variável pode ser acessada)
+==> let: O escopo de uma variável declarada com let é local ao bloco de código onde ela é criada. 
+Ou seja, ela só pode ser acessada dentro de chaves { }, como dentro de uma função, 
+de um laço de repetição ou de uma estrutura de decisão (como if).
+  
+  Exemplo:
+  
+  if (true) {
+      let nome = "Carlos";
+      console.log(nome); // funciona dentro do bloco
+  }
+  console.log(nome); 
+  // erro! A variável "nome" não está acessível fora do bloco
+  
+
+==> var: O escopo de uma variável declarada com varé global ou local à função. 
+Isso significa que, se a variável for declarada dentro de uma função, ela será acessível em toda a função. 
+Mas, se for declarada fora de uma função, será acessível em qualquer parte do código, mesmo fora de blocos 
+como if ou laços de repetição.
+  
+  Exemplo:
+  
+  if (true) {
+      var nome = "Carlos";
+      console.log(nome); // funciona dentro do bloco
+  }
+  console.log(nome); 
+  // funciona fora do bloco também, porque "nome" é acessível globalmente
+  
+
+ 2. Re-declaração da variável
+==> let: Você não pode redeclarar uma variável com o mesmo nome dentro do mesmo escopo. 
+Ou seja, se você declarar uma variável com let e tentar declarar a mesma variável 
+novamente no mesmo bloco, ocorrerá um erro.
+  
+  Exemplo:
+  
+  let nome = "Carlos";
+  let nome = "João"; // Erro! Não é permitido redeclarar a mesma variável com let
+  
+
+==> var: Você pode redeclarar uma variável várias vezes no mesmo escopo sem problemas. 
+Isso pode gerar confusão e erros difíceis de encontrar, por isso, é recomendado evitar.
+
+  Exemplo:
+  
+  var nome = "Carlos";
+  var nome = "João"; // Funciona! "nome" pode ser redeclarado com var
+  
+
+ 3. Hoisting (A "elevação" da variável)
+==> let: As variáveis declaradas com let não são elevadas para o topo do código. 
+Isso significa que, se você tentar acessar uma variável antes de ela ser declarada, ocorrerá um erro.
+  
+  Exemplo:
+  
+  console.log(nome); // Erro! "nome" ainda não foi declarado
+  let nome = "Carlos";
+  
+
+==> var: As variáveis declaradas com varsão elevadas para o topo do código. 
+Isso quer dizer que, mesmo que você escreva a declaração depois de tentar acessar a variável, 
+o código ainda funcionará, mas o valor será `undefined` até a linha em que a variável recebe um valor.
+  
+  Exemplo:
+  
+  console.log(nome); // undefined
+  var nome = "Carlos";
+  
+
+ Resumo:
+==> let tem um escopo mais restrito, não permite redeclaração e não é elevada.
+==> var tem um escopo mais amplo, permite redeclaração e é elevada.
+
+Por isso, let é mais moderno e seguro de usar em comparação com var, especialmente para evitar problemas de escopo e redeclaração.
+
+

@@ -1,0 +1,168 @@
+JavaScript: Operadores, Condições e Laços de Repetição
+
+1. Operadores em JavaScript
+
+1.1 Operadores Aritméticos
+==> Precedência de Operadores: Em expressões com múltiplos operadores, 
+a ordem de execução segue a matemática: 
+primeiro *, / e %, depois + e -. 
+Parênteses () têm a maior precedência.
+
+Exemplo: 
+
+let resultado = 10 + 5 * 2; // 20, pois multiplicação é feita antes da adição
+let corrigido = (10 + 5) * 2; // 30, devido ao uso de parênteses
+
+
+Explicação: O primeiro exemplo mostra a precedência natural, enquanto 
+o segundo usa parênteses para mudar a ordem.
+
+1.2 Operadores de Comparação
+
+console.log(51 == '51'); // true, compara apenas o valor
+console.log(51 === '51'); // false, compara valor e tipo
+
+Explicação: == compara apenas o valor, enquanto === compara valor e tipo, 
+tornando a verificação mais restrita.
+
+1.3 Operadores Lógicos
+
+Os operadores lógicos em JavaScript são:
+
+&& (E lógico): Retorna verdadeiro se ambos os operandos 
+forem verdadeiros.
+|| (OU lógico): Retorna verdadeiro se pelo menos um 
+dos operandos for verdadeiro.
+! (NÃO lógico): Inverte o valor lógico do operando.
+
+ 
+let idade = 20; 
+if (idade >= 18 && idade <= 65) {
+    console.log('Adulto em idade laboral');
+} // Ambos precisam ser verdadeiros.
+
+
+let hora = 10;
+if (hora < 12 || hora > 18) {
+    console.log('Fora do horário comercial');
+} // Basta uma condição ser verdadeira.
+
+let acesso = false;
+if (!acesso) {
+    console.log('Acesso negado');
+} // O operador `!` inverte o valor.
+
+2. Estruturas Condicionais
+
+2.1 if, else if, else
+
+let nota = 85;
+if (nota >= 90) {
+    console.log('Aprovado com distinção');
+} else if (nota >= 70) {
+    console.log('Aprovado');
+} else {
+    console.log('Reprovado');
+}
+
+Explicação: O if avalia a primeira condição, o else if avalia 
+outras condições e o else é executado se nenhuma for verdadeira.
+
+
+2.2 switch case
+
+let fruta = 'Maçã';
+switch (fruta) {
+    case 'Banana':
+        console.log('Banana é amarela');
+        break;
+    case 'Maçã':
+        console.log('Maçã é vermelha');
+        break;
+    default:
+        console.log('Fruta não identificada');
+}
+
+
+Explicação: O switch avalia a variável e executa o código do caso 
+correspondente, usando break para evitar a execução dos próximos casos.
+
+
+3. Laços de Repetição
+
+3.1 for
+
+for (let i = 0; i < 5; i++) {
+    console.log(i); // Exibe os números de 0 a 4
+}
+
+3.2 while
+
+let contador = 0;
+while (contador < 5) {
+    console.log(contador);
+    contador++; // Incrementa a cada iteração
+}
+
+3.3 do...while
+
+let num = 0;
+do {
+    console.log(num); // Executa pelo menos uma vez
+    num++;
+} while (num < 5);
+
+
+
+3.4 label
+externo: for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				if (i === 1 && j === 1) break externo; 
+				// Interrompe ambos os loops
+				console.log(i, j);
+			}
+		}
+
+3.5 break e continue
+for (let i = 0; i < 5; i++) {
+    if (i === 2) continue; // Pula a iteração quando i = 2
+    if (i === 4) break;    // Sai do loop quando i = 4
+    console.log(i);
+}
+
+3.6 for...in
+
+let objeto = {a: 1, b: 2, c: 3};
+for (let chave in objeto) {
+    console.log(chave, objeto[chave]); 
+	// Itera sobre as chaves de um objeto
+}
+
+3.7 for...of
+
+let array = [10, 20, 30];
+for (let valor of array) {
+    console.log(valor); 
+	// Itera sobre os valores de um array
+}
+
+
+Exercícios Propostos
+
+aula2-atv1: 
+Crie um objeto representando um carro com as propriedades marca, modelo e ano. 
+Exiba essas informações no console.
+
+aula2-atv2: 
+Escreva um código que exiba o maior entre três números.
+
+aula2-atv3: 
+Crie um programa que use um for...of para somar 
+todos os valores de um array de números.
+
+aula2-atv4: Crie um código que verifique se um número é par ou ímpar.
+
+aula2-atv5: Use um loop para exibir os números de 1 a 10.
+
+
+

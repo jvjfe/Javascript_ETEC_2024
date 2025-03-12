@@ -1,0 +1,118 @@
+ 📌 addEventListener() e removeEventListener() em JavaScript
+
+ 1-O que são addEventListener() e removeEventListener()?
+O JavaScript permite que adicionemos e removamos eventos de elementos HTML dinamicamente utilizando os métodos
+ addEventListener() e removeEventListener(). 
+
+🔹 addEventListener() → Adiciona um evento a um elemento sem sobrescrever outros eventos existentes. 
+🔹 removeEventListener() → Remove um evento previamente adicionado. 
+
+Esses métodos são mais flexíveis do que os atributos de evento no HTML, pois permitem adicionar múltiplos 
+eventos ao mesmo elemento sem sobrescrevê-los.
+
+
+
+2-Como funciona o addEventListener()?
+A sintaxe básica do `addEventListener()` é:
+
+elemento.addEventListener(tipoDoEvento, função, usoCapturaOpcional);
+
+
+📌 Parâmetros: 
+
+1tipoDoEvento → Nome do evento a ser escutado ("click", "keydown", "submit", etc.). 
+2função → A função que será executada quando o evento ocorrer. 
+3(Opcional) usoCapturaOpcional → Define se o evento será capturado na fase de captura (padrão: false). 
+
+🔹 Exemplo 1 – addEventListener() com clique 
+
+
+<button id="botao">Clique Aqui</button>
+<p id="mensagem">Aguardando clique...</p>
+
+<script>
+	 document.getElementById("botao").addEventListener("click", function() {
+	 document.getElementById("mensagem").textContent = "Botão clicado!";
+ });
+</script>
+
+
+✅ Explicação: 
+- O evento "click" é adicionado ao botão. 
+- Quando o usuário clica no botão, o texto do parágrafo muda. 
+
+
+
+3-Como funciona o `removeEventListener()`?
+O removeEventListener() remove um evento que foi previamente adicionado com addEventListener(). 
+
+🔹 Sintaxe: 
+
+elemento.removeEventListener(tipoDoEvento, função);
+
+📌 Importante: 
+- O nome da função deve ser o mesmo ao adicionar e remover o evento. 
+- Funções anônimas não podem ser removidas, pois o removeEventListener() não consegue identificá-las.
+
+🔹 Exemplo 2 – removeEventListener()
+
+<button id="botao">Clique Aqui</button>
+<button id="remover">Remover Evento</button>
+<p id="mensagem">Aguardando clique...</p>
+
+<script>
+ function mostrarMensagem() {
+	document.getElementById("mensagem").textContent = "Botão clicado!";
+ }
+
+ let botao = document.getElementById("botao");
+ let botaoRemover = document.getElementById("remover");
+
+ botao.addEventListener("click", mostrarMensagem);
+
+ botaoRemover.addEventListener("click", function() {
+	botao.removeEventListener("click", mostrarMensagem);
+	document.getElementById("mensagem").textContent = "Evento removido!";
+ });
+</script>
+
+
+✅ Explicação: 
+- O botão principal (`botao`) recebe um evento de clique. 
+- O botão de remover (`botaoRemover`) remove esse evento. 
+- Após remover, o botão principal não faz mais nada ao ser clicado. 
+
+
+
+4-Diferença entre `onclick` e `addEventListener()`
+Muitos iniciantes adicionam eventos assim:
+
+
+document.getElementById("botao").onclick = function() {
+	console.log("Botão clicado!");
+};
+
+O problema é que isso sobrescreve eventos anteriores no mesmo elemento. 
+Já com addEventListener(), podemos adicionar vários eventos ao mesmo elemento sem sobrescrevê-los.
+
+🔹 Exemplo – Dois eventos no mesmo botão 
+
+let botao = document.getElementById("botao");
+
+botao.addEventListener("click", function() {
+	console.log("Evento 1");
+});
+
+botao.addEventListener("click", function() {
+	console.log("Evento 2");
+});
+
+✅ Resultado: Quando o botão for clicado, ambos os eventos serão executados. Isso não seria possível usando onclick.
+
+
+
+ 📌 Conclusão
+- addEventListener() é a forma mais flexível de adicionar eventos no JavaScript. 
+- removeEventListener() permite remover eventos específicos. 
+- É preferível usar addEventListener() em vez de onclick, pois evita sobrescrever eventos. 
+

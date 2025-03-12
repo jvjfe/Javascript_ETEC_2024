@@ -1,0 +1,137 @@
+ 📌 O que são eventos em JavaScript e como funcionam?
+
+ 1-O que são eventos?
+Eventos em JavaScript são ações ou ocorrências que acontecem na página web e podem 
+ser detectadas pelo navegador. 
+Os eventos são a principal forma de interação entre o usuário e a página.
+
+ 📌 Exemplos de eventos comuns:
+✅ Um clique em um botão 
+✅ Pressionar uma tecla no teclado 
+✅ Enviar um formulário 
+✅ Passar o mouse sobre um elemento 
+✅ Carregamento da página 
+
+Os eventos permitem que a página reaja às ações do usuário, tornando-a interativa e dinâmica.
+
+ 2-Como os eventos funcionam no JavaScript?
+No JavaScript, podemos associar funções a eventos. 
+Isso significa que podemos definir uma ação específica que 
+deve ser executada quando um evento acontece.
+
+ 📌 Exemplo básico:
+Vamos criar um botão que exibe um alerta quando é clicado.
+
+ 📌 Código HTML:
+
+<button onclick="mostrarAlerta()">Clique aqui</button>
+
+
+ 📌 Código JavaScript:
+
+function mostrarAlerta() {
+ alert("Você clicou no botão!");
+}
+
+✅ Explicação: 
+- O botão tem o atributo `onclick`, que chama a função `mostrarAlerta()`. 
+- Quando o botão é clicado, o JavaScript executa a função, que exibe um alerta na tela. 
+
+
+ 3-Tipos de eventos em JavaScript
+Existem diversos tipos de eventos em JavaScript. Aqui estão alguns dos mais comuns:
+
+ 🔹 Eventos de Mouse
+- `click` → Ocorre quando um elemento é clicado.
+- `dblclick` → Ocorre quando um elemento é clicado duas vezes rapidamente.
+- `mouseover` → Ocorre quando o mouse passa sobre um elemento.
+- `mouseout` → Ocorre quando o mouse sai de um elemento.
+
+ 📌 Exemplo:
+
+<button onmouseover="mudarTexto()">Passe o mouse aqui</button>
+<p id="mensagem">Texto original</p>
+
+
+
+function mudarTexto() {
+ document.getElementById("mensagem").textContent = "O mouse passou aqui!";
+}
+
+✅ Explicação: Quando o mouse passa sobre o botão, o texto do `<p>` é alterado.
+
+
+
+ 🔹 Eventos de Teclado
+- `keydown` → Quando uma tecla é pressionada.
+- `keyup` → Quando uma tecla é solta.
+- `keypress` → Quando uma tecla é pressionada e liberada.
+
+ 📌 Exemplo:
+
+<input type="text" onkeydown="teclaPressionada(event)">
+<p id="tecla"></p>
+
+
+
+function teclaPressionada(event) {
+ document.getElementById("tecla").textContent = `Tecla pressionada: ${event.key}`;
+}
+
+✅ Explicação: Quando o usuário pressiona uma tecla no campo de entrada, o nome da tecla aparece na tela.
+
+
+ 🔹 Eventos de Formulário
+- `submit` → Ocorre quando um formulário é enviado.
+- `change` → Ocorre quando um campo de formulário é alterado.
+- `focus` → Quando um campo de formulário recebe foco.
+- `blur` → Quando um campo de formulário perde o foco.
+
+ 📌 Exemplo:
+
+<form onsubmit="enviarFormulario(event)">
+ <input type="text" id="nome" required>
+ <button type="submit">Enviar</button>
+</form>
+<p id="mensagem"></p>
+
+
+
+function enviarFormulario(event) {
+ event.preventDefault(); // Evita o envio padrão do formulário
+ document.getElementById("mensagem").textContent = "Formulário enviado com sucesso!";
+}
+
+✅ Explicação: O formulário não será enviado para outra página. 
+Em vez disso, a mensagem será exibida na tela.
+
+
+
+ 4-Como lidar com eventos em JavaScript?
+Podemos associar eventos a elementos de três formas:
+
+ 🔹 1. Diretamente no HTML (menos recomendado)
+
+<button onclick="mostrarMensagem()">Clique aqui</button>
+
+
+ 🔹 2. Através do JavaScript (recomendado)
+
+document.getElementById("meuBotao").onclick = mostrarMensagem;
+
+
+ 🔹 3. Usando `addEventListener()` (mais flexível e recomendado)
+
+document.getElementById("meuBotao").addEventListener("click", mostrarMensagem);
+
+
+Vamos detalhar `addEventListener()` no próximo tópico! 🚀
+
+
+
+ 📌 Conclusão
+- Eventos permitem interatividade na página.
+- Podemos detectar eventos de clique, teclado, formulário, etc.
+- Eventos podem ser associados diretamente no HTML ou no JavaScript.
+- O método `addEventListener()` é a abordagem mais recomendada.
+

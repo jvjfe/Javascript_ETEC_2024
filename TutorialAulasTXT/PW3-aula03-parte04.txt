@@ -1,0 +1,81 @@
+ 1. Criando um Elemento
+
+Podemos usar document.createElement() 
+para criar um novo elemento e appendChild() para adicioná-lo à página.
+
+Exemplo:
+
+<button onclick="adicionarItem()">Adicionar Item</button>
+<ul id="lista"></ul>
+<script src="script.js"></script>
+
+function adicionarItem() {
+    let lista = document.getElementById('lista');
+    let novoItem = document.createElement('li');
+    novoItem.textContent = 'Novo item';
+    lista.appendChild(novoItem);
+}
+
+Explicação: A função adicionarItem() cria um novo elemento <li>, define seu conteúdo e o adiciona à lista.
+
+4. Removendo um Elemento
+
+Podemos remover um elemento com removeChild() ou remove().
+
+Exemplo:
+
+<ul id="lista">
+    <li id="item1">Item 1</li>
+    <li id="item2">Item 2</li>
+</ul>
+<button onclick="removerItem()">Remover Item</button>
+<script src="script.js"></script>
+
+function removerItem() {
+    let lista = document.getElementById('lista');
+    let item = document.getElementById('item1');
+    lista.removeChild(item);
+}
+
+Explicação: A função removerItem() remove o primeiro item da lista.
+
+3. Substituindo um Elemento
+
+Podemos substituir um elemento existente por outro usando replaceChild(). 
+Isso é diferente de apenas alterar seu conteúdo com innerHTML ou textContent, 
+pois estamos efetivamente removendo o elemento antigo e adicionando um novo no seu lugar.
+
+Exemplo:
+
+<div id="container">
+    <h2 id="titulo">Título Original</h2>
+</div>
+<button onclick="substituirElemento()">Substituir Elemento</button>
+<script src="script.js"></script>
+
+function substituirElemento() {
+    let container = document.getElementById('container');
+    let tituloAntigo = document.getElementById('titulo');
+    let novoTitulo = document.createElement('h3');
+    novoTitulo.textContent = 'Novo Título (Elemento Substituído)';
+    container.replaceChild(novoTitulo, tituloAntigo);
+}
+
+Explicação: A função substituirElemento() cria um novo <h3> e substitui o <h2> existente. 
+Dessa forma, o elemento antigo é completamente removido do DOM e substituído por outro de tipo diferente.
+Podemos substituir um elemento existente com replaceChild().
+
+Exemplo:
+
+<p id="texto">Texto original</p>
+<button onclick="substituirTexto()">Substituir Texto</button>
+<script src="script.js"></script>
+
+function substituirTexto() {
+    let paragrafo = document.getElementById('texto');
+    let novoParagrafo = document.createElement('p');
+    novoParagrafo.textContent = 'Texto atualizado';
+    paragrafo.parentNode.replaceChild(novoParagrafo, paragrafo);
+}
+
+Explicação: A função substituirTexto() cria um novo <p> e substitui o existente.

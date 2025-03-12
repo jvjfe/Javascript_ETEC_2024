@@ -1,0 +1,142 @@
+ 📌 Propagação e Delegação de Eventos (event.target e event.currentTarget)
+
+ 1-O que é Propagação de Eventos?
+A propagação de eventos em JavaScript define como os eventos fluem através do DOM (Document Object Model). 
+Quando um evento ocorre, ele pode se propagar de duas formas:
+
+- Fase de Captura (Capturing Phase): O evento começa no topo do DOM e desce até o elemento alvo.
+- Fase de Propagação (Bubbling Phase): O evento inicia no elemento alvo e sobe até o topo do DOM.
+
+Por padrão, o JavaScript usa a propagação de eventos (bubbling), ou seja, 
+o evento ocorre primeiro no elemento clicado e depois sobe para seus elementos ancestrais.
+
+ 📌 Exemplo de Propagação (Bubbling)
+
+<div id="pai">
+	<button id="filho">Clique aqui</button>
+</div>
+
+<script>
+	document.getElementById("pai").addEventListener("click", function() {
+	console.log("Evento no PAI!");
+	});
+
+	document.getElementById("filho").addEventListener("click", function() {
+	console.log("Evento no FILHO!");
+	});
+</script>
+
+✅ Explicação:
+- Quando o usuário clica no botão (filho), ele dispara o evento primeiro no botão e depois no div pai.
+
+📌 Saída esperada no console ao clicar no botão: 
+
+Evento no FILHO!
+Evento no PAI!
+
+
+ 📌 Interrompendo a Propagação
+Se quisermos impedir que o evento se propague para os elementos ancestrais, usamos event.stopPropagation().
+
+
+document.getElementById("filho").addEventListener("click", function(event) {
+	 event.stopPropagation(); // Impede a propagação para o elemento pai
+	 console.log("Evento no FILHO!");
+});
+
+📌 Agora, ao clicar no botão, somente esta mensagem será exibida no console: 
+
+Evento no FILHO!
+
+2-O que é Delegação de Eventos?
+A delegação de eventos permite associar um evento a um elemento pai para capturar eventos de seus filhos, 
+mesmo que esses elementos sejam criados dinamicamente.
+
+Isso é útil quando temos vários elementos dentro de um contêiner e queremos capturar eventos sem precisar adicionar ouvintes 
+(addEventListener()) para cada um deles.
+
+ 📌 Exemplo sem Delegação de Eventos (Código Ineficiente)
+
+<button class="botao">Botão 1</button>
+<button class="botao">Botão 2</button>
+<button class="botao">Botão 3</button>
+
+<script>
+ let botoes = document.querySelectorAll(".botao");
+
+ botoes.forEach(botao => {
+		 botao.addEventListener("click", function() {
+		 console.log("Botão clicado!");
+	 });
+ });
+</script>
+
+✅ Problema: 
+Se adicionarmos novos botões dinamicamente via JavaScript, eles não terão o evento associado.
+
+
+ 📌 Solução: Delegação de Eventos
+Em vez de adicionar eventos a cada botão individualmente, adicionamos o evento ao elemento pai, 
+que capturará o evento de qualquer botão dentro dele.
+
+
+<div id="container">
+ <button class="botao">Botão 1</button>
+ <button class="botao">Botão 2</button>
+ <button class="botao">Botão 3</button>
+</div>
+
+<script>
+ document.getElementById("container").addEventListener("click", function(event) {
+	 if (event.target.classList.contains("botao")) {
+		console.log(`Você clicou no botão: ${event.target.textContent}`);
+	 }
+ });
+</script>
+
+✅ Vantagens da Delegação de Eventos: 
+🔹 Funciona mesmo se adicionarmos novos botões dinamicamente. 
+🔹 Reduz o número de ouvintes de eventos, melhorando a performance. 
+
+
+3-Diferença entre event.target e event.currentTarget
+Quando um evento ocorre, temos dois elementos importantes:
+
+- event.target → O elemento que disparou o evento.
+- event.currentTarget → O elemento ao qual o evento está associado.
+
+ 📌 Exemplo Prático
+
+<div id="pai">
+	<button id="filho">Clique aqui</button>
+</div>
+
+<script>
+	 document.getElementById("pai").addEventListener("click", function(event) {
+		 console.log("Elemento que disparou o evento:", event.target);
+		 console.log("Elemento com o evento associado:", event.currentTarget);
+	 });
+</script>
+
+
+✅ Explicação: 
+- Se o usuário clicar no botão (filho) dentro do div pai:
+ 📌 event.target será o botão (<button>), pois foi ele quem disparou o evento. 
+ 📌 event.currentTarget será o div pai, pois o evento foi associado a ele. 
+
+🔹 Saída esperada no console ao clicar no botão: 
+
+Elemento que disparou o evento: <button id="filho">Clique aqui</button>
+Elemento com o evento associado: <div id="pai"></div>
+
+
+---
+
+ 📌 Conclusão
+- Propagação de eventos pode ser interrompida com event.stopPropagation(). 
+- Delegação de eventos melhora a performance e permite capturar eventos em elementos dinâmicos. 
+- event.target aponta para o elemento que disparou o evento, enquanto event.currentTarget aponta para o elemento que tem o evento associado. 
+
+Agora que entendemos propagação e delegação de eventos, podemos testar com um exemplo prático! 🚀😊 
+
+Se precisar de ajustes ou quiser adicionar algo, me avise!

@@ -1,0 +1,25 @@
+Exercício: Manipulação do DOM com Funções JavaScript
+
+Enunciado:
+
+Crie uma página web interativa onde os usuários possam modificar elementos dinamicamente utilizando JavaScript e manipulação do DOM. 
+A página deve conter as seguintes funcionalidades:
+
+Alteração de Texto: 
+Um botão que modifica o título principal da página.
+
+Edição de Parágrafos: 
+Um botão que altera o conteúdo de um parágrafo específico.
+
+Troca de Imagem: 
+Um botão que substitui a imagem exibida por outra.
+
+Mudança de Estilo: 
+Um botão que altera a cor e o tamanho de um texto dinamicamente.
+
+Substituição de Elementos: 
+Um botão que troca um subtítulo <h2> por um <h3>.
+
+Adição e Remoção de Itens: 
+Botões que adicionam e removem itens de uma lista dinâmica.
+

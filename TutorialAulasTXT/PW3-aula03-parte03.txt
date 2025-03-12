@@ -1,0 +1,56 @@
+1. Modificando o Conteúdo de um Elemento
+
+Podemos alterar o texto dentro de um elemento 
+usando textContent ou innerHTML.
+
+Exemplo:
+
+<p id="mensagem">Texto original</p>
+<button onclick="modificarTexto()">Alterar Texto</button>
+<script src="script.js"></script>
+
+function modificarTexto() {
+    let elemento = document.getElementById('mensagem');
+    elemento.textContent = 'Texto alterado via JavaScript!';
+}
+
+Explicação: A função modificarTexto() 
+altera o conteúdo do parágrafo quando o botão é clicado.
+
+2. Modificando Atributos de um Elemento
+
+Podemos alterar atributos como src, href, value, etc., 
+usando setAttribute ou acessando diretamente a propriedade do elemento.
+
+Exemplo:
+
+<img id="imagem" src="imagem1.jpg" width="200">
+<button onclick="alterarImagem()">Trocar Imagem</button>
+<script src="script.js"></script>
+
+function alterarImagem() {
+    let img = document.getElementById('imagem');
+    img.setAttribute('src', 'imagem2.jpg');
+}
+
+Explicação: Quando o botão é clicado, a imagem 
+exibida muda dinamicamente.
+
+3. Modificando Estilos de um Elemento
+
+Podemos alterar os estilos diretamente usando style.
+
+Exemplo:
+
+<p id="paragrafo">Este texto mudará de cor!</p>
+<button onclick="mudarCor()">Mudar Cor</button>
+<script src="script.js"></script>
+
+function mudarCor() {
+    let paragrafo = document.getElementById('paragrafo');
+    paragrafo.style.color = 'blue';
+    paragrafo.style.fontSize = '20px';
+}
+
+Explicação: A função mudarCor() altera a cor e o 
+tamanho da fonte do texto dinamicamente.
